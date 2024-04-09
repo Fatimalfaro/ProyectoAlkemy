@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiltrarProductos</title>
+</head>
+<body>
+    <h1>Productos filtrados por nombre</h1>
+    {% for producto in productoEncontrado %}
+        <li>{{producto.nombre}}, {{producto.precio}}, {{producto.stock_actual}}</li>
+    {% endfor %}
+</body>
+</html>
