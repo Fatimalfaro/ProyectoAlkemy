@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario Nuevo Proveedor</title>
+</head>
+
+<body>
+    <section class="contenedor">
+        <header>Formulario de registro</header>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="entrada">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div class="entrada">
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" required>
+            </div>
+
+            <div class="entrada">
+                <label for="dni">DNI:</label>
+                <input type="number" name="dni" required>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</body>
+</html>
