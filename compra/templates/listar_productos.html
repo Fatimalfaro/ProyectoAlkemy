@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Productos</title>
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <style>
-        .container {
-            margin-top: 20px;
-        }
-        
-        .btn-primary {
-            margin-bottom: 10px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        th {
-            background-color: #343a40;
-            color: white;
-        }
-        
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-    </style>-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <img src="data:image/png;base64,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"
+                alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#"><b class="text-light align-text-center">
+                    <h1>CASA DE ELECTRODOMESTICOS</h1>
+                </b></a>
+        </div>
+    </nav>
+    <br>
+    <br>
     <div class="container">
-        <table class="table table-dark table-hover" border="1">
+        <h3>LISTADO DE TODOS LOS PRODUCTOS</h3>
+        <br>
+        <table class="table table-primary table-striped table-bordered table-responsive">
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -46,17 +33,21 @@
                 <th>Stock Actual</th>
                 <th>Proveedor</th>
             </tr>
-            
+
             {% for producto in productos %}
-                <tr>
-                    <td>{{producto.id}}</td>
-                    <td>{{producto.nombre}}</td>
-                    <td>{{producto.precio}}</td>
-                    <td>{{producto.stock_actual}}</td>
-                    <td>{{producto.proveedor}}</td>
-                </tr>
+            <tr>
+                <td>{{producto.id}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.stock_actual}}</td>
+                <td>{{producto.proveedor}}</td>
+            </tr>
             {% endfor %}
         </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
